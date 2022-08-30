@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' show Client;
 
-import 'home_page.dart';
+import 'package:testapp/src/app.dart';
+import 'package:testapp/src/providers/app_provider.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
+void main() => runApp(AppProvider(
+      httpClient: Client(),
+      child: MyApp(),
+    ));
